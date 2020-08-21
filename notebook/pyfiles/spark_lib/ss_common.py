@@ -72,14 +72,14 @@ SSP_ID_MAP = {
      8651:  8651,  10405:  8651,                # GMO(8651), GMO_r18(10405)
     24301: 24301,                               # AOL_MARKETPLACE(24301)
      8086:  8086,                               # OpenX(8086)
-    68351: 68351,                               # SpotX(68351)
+    66255: 66255,  66255: 68351,                # SpotX(68351)
     10392: 10392,  25585: 10392, 19564: 10392,  48464: 10392,
                                                 # adgen(10392), adgen_inf(25585), adgen_r18(19564), AppVador(48464)
     47445: 47445,                               # Teads(47445)
-    51588: 51588,  51589: 51588,                # Mopub(51588), Mopub_inf(51589)
+    51589: 51589,  51588: 51589,                # Mopub(51588), Mopub_inf(51589)
     58705: 58705,                               # Vungle(58705)
     56007: 56007,  57429: 56007,                # AppNexus(56007), Yahoo_via_AppNexus(57429)
-     8085:  8085,  44196:  8085,                # DoubleClick(8085), DoubleClick_inf(44196)
+     8085:  8085,   8085: 44196,                # DoubleClick(8085), DoubleClick_inf(44196)
     12372: 12372,                               # PubMatic(12372)
      8392:  8392,   9918:  8392,                # AdStir(8392), AdStir_r18(9918)
     16535: 16535,                               # Rubicon(16535)
@@ -102,12 +102,7 @@ SSP_ID_MAP = {
 def get_ssp_page_id(page_id):
     ''' page_id変換
     '''
-    try:
-        if not page_id or not page_id.isdigit():
-            return -1
-        return SSP_ID_MAP.get(int(page_id), -1)
-    except:
-        return -1
+    return SSP_ID_MAP.get(page_id, -1)
 
 def timestamp_to_hour(ts):
     ''' timestampをhour（Integer）に変換
